@@ -32,11 +32,11 @@ Below is the Mysql Code .. iave also uploaded the MySql File
 -- HANDLING DUPLICATE VALUES
 ----------------------------------------------------------------------------------
 > select *, 
-> ROW_NUMBER() OVER(
+ ROW_NUMBER() OVER(
 				  Partition By company, location, industry, total_laid_off, percentage_laid_off, `date`,
 							   stage,country, funds_raised_millions
 				 ) AS row_num
-> from layoff_stage;
+  from layoff_stage;
 
 -- Create a CTE and look for rows where the row_num is greater than 2
 with duplicate_cte AS
