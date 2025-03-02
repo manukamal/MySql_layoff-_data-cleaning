@@ -9,28 +9,34 @@ Below is the Mysql Code .. iave also uploaded the MySql File
 > select count(*) from layoffs;
 ------------------------------------------------------------------------------------
 -- make a copy of the original table 
-create table layoff_stage
-Like layoffs;
+------------------------------------------------------------------------------------
+> create table layoff_stage
+> Like layoffs;
 -----------------------------------------------------------------------------------
 -- Now look at the structure of the table created above 
-select * from layoff_stage;
+
+> select * from layoff_stage;
 -- Insert the data into the newly created table 
-insert layoff_stage
-select * from layoffs;
+> insert layoff_stage
+> select * from layoffs;
+
 -- Check at the data in the new table 
-select * from layoff_stage;
+
+> select * from layoff_stage;
+
 -- counting the no. of enrty in the new table 
-select count(*) from layoff_stage;
+
+>select count(*) from layoff_stage;
 
 ----------------------------------------------------------------------------------
 -- HANDLING DUPLICATE VALUES
 ----------------------------------------------------------------------------------
-select *, 
-ROW_NUMBER() OVER(
+> select *, 
+> ROW_NUMBER() OVER(
 				  Partition By company, location, industry, total_laid_off, percentage_laid_off, `date`,
 							   stage,country, funds_raised_millions
 				 ) AS row_num
-from layoff_stage;
+> from layoff_stage;
 
 -- Create a CTE and look for rows where the row_num is greater than 2
 with duplicate_cte AS
