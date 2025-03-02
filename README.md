@@ -3,10 +3,10 @@ the dataset name is layoff and in this repository I have used mysql to clean the
 Below is the Mysql Code .. iave also uploaded the MySql File 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 ******************************************************************************************************************************************************
-# use data_cleaning;
-# select * from layoffs;
+> use data_cleaning;
+> select * from layoffs;
 -- Counting the no. of rows
-# select count(*) from layoffs;
+> select count(*) from layoffs;
 ------------------------------------------------------------------------------------
 -- make a copy of the original table 
 create table layoff_stage
